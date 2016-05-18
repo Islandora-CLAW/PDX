@@ -1,6 +1,6 @@
 <?php
 
-namespace Islandora\PDX\Services;
+namespace Islandora\PDX;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
