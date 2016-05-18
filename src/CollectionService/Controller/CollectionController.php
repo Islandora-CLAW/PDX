@@ -84,7 +84,6 @@ class CollectionController
             //Restore LDP <> IRI on serialised graph
             $compact = JsonLd::compact($json_doc->toJsonLd());
             $pcdm_collection_rdf = str_replace($fakeIri, '', JsonLd::toString($compact));
-
         }
 
         $urlRoute = $request->getUriForPath('/islandora/resource/');
