@@ -5,6 +5,7 @@ namespace Islandora\PDX;
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Silex\Application;
+use Islandora\Chullo\Uuid\UuidGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -28,9 +29,14 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), array(
 
 $islandoraCollectionServiceProvider = new CollectionServiceProvider;
 
-$app->register($islandoraCollectionServiceProvider, $basepath);
+$app->register(
+    $islandoraCollectionServiceProvider,
+    array(
+        'UuidGenerator' => new UuidGenerator(),
+    )
+);
+
 $app->mount("/islandora", $islandoraCollectionServiceProvider);
-$app->register(new UUIDServiceProvider());
 
 /**
  * Convert returned Guzzle responses to Symfony responses, type hinted.
