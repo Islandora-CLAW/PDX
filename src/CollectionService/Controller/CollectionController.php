@@ -1,6 +1,6 @@
 <?php
 
-namespace Islandora\CollectionService\Controller;
+namespace Islandora\PDX\CollectionService\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
