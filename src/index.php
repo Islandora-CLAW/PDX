@@ -12,6 +12,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Psr\Http\Message\ResponseInterface;
 use Silex\Provider\TwigServiceProvider;
 use Islandora\PDX\CollectionService\Provider\CollectionServiceProvider;
+use Islandora\Crayfish\Provider\CrayfishProvider;
 
 date_default_timezone_set('UTC');
 
@@ -28,6 +29,7 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $islandoraCollectionServiceProvider = new CollectionServiceProvider;
+$islandoraCrayfishProvider = new CrayfishProvider;
 
 $app->register(
     $islandoraCollectionServiceProvider,
@@ -35,8 +37,10 @@ $app->register(
         'UuidGenerator' => new UuidGenerator(),
     )
 );
+$app->register($islandoraCrayfishProvider);
 
 $app->mount("/islandora", $islandoraCollectionServiceProvider);
+$app->mount("/islandora", $islandoraCrayfishProvider);
 
 /**
  * Convert returned Guzzle responses to Symfony responses, type hinted.
