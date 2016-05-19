@@ -45,6 +45,13 @@ $app->mount("/islandora", $islandoraCrayfishProvider);
 /**
  * Convert returned Guzzle responses to Symfony responses, type hinted.
  */
+$app->after(
+    function (Request $request, Response $response) use ($app) {
+        $response->headers->set('X-Powered-By', 'Islandora Collection REST API v'
+        .$app['config']['islandora']['apiVersion'], true); //Nice
+    }
+);
+
 $app->view(function (ResponseInterface $psr7) {
     return new Response($psr7->getBody(), $psr7->getStatusCode(), $psr7->getHeaders());
 });
