@@ -113,7 +113,7 @@ class CollectionController
                 )
             );
             $subRequestPut = Request::create(
-                $urlRoute . $id ,
+                $urlRoute . $id,
                 'PUT',
                 array(),
                 $request->cookies->all(),
