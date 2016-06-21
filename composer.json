@@ -25,7 +25,6 @@
     "autoload": {
         "psr-4": {"Islandora\\PDX\\": "src/"}
     },
-    "minimum-stability" : "dev",
     "license": "MIT",
     "authors": [
         {
