@@ -17,3 +17,6 @@ script:
 
 notifications:
   irc: "irc.freenode.org#islandora"
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
