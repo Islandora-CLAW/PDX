@@ -14,7 +14,7 @@ class PdxWebTestCase extends WebTestCase
 
   public function createApplication()
   {
-    return (require __DIR__.'/../src/app.php');
+
   }
 
 
