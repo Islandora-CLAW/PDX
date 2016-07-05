@@ -7,15 +7,13 @@ use Islandora\Chullo\Uuid\UuidGenerator;
 
 class PdxWebTestCase extends WebTestCase
 {
-  public function __construct()
-  {
-    
-  }
+    public function __construct()
+    {
 
-  public function createApplication()
-  {
+    }
 
-  }
+    public function createApplication()
+    {
 
-
+    }
 }
